@@ -1,0 +1,33 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=image/png;image/jpeg;image/webp;image/gif;image/x-icon;
+Actions=convertToJpg;convertToPng;convertToWebp;convertToGif;convertToIco;
+X-KDE-Submenu=Convert To
+X-KDE-Priority=TopLevel
+X-KDE-Submenu-Icon=albumfolder-importimages
+
+[Desktop Action convertToJpg]
+Name=Convert to JPG
+Icon=edit-image
+Exec=bash -c 'for f; do convert "$f" -background white -alpha remove "${f%.*}.jpg"; done' _ %F
+
+[Desktop Action convertToPng]
+Name=Convert to PNG
+Icon=edit-image
+Exec=bash -c 'for f; do convert "$f" "${f%.*}.png"; done' _ %F
+
+[Desktop Action convertToWebp]
+Name=Convert to WebP
+Icon=edit-image
+Exec=bash -c 'for f; do convert "$f" -quality 85 "${f%.*}.webp"; done' _ %F
+
+[Desktop Action convertToGif]
+Name=Convert to GIF
+Icon=edit-image
+Exec=bash -c 'for f; do convert "$f" "${f%.*}.gif"; done' _ %F
+
+[Desktop Action convertToIco]
+Name=Convert to ICO (App Icon)
+Icon=edit-image
+Exec=bash -c 'for f; do convert "$f" -define icon:auto-resize=256,64,48,32,16 "${f%.*}.ico"; done' _ %F
