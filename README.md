@@ -24,7 +24,7 @@ Multiple files can be selected and converted at once.
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/kde-image-converter
+git clone https://github.com/bassidus/kde-image-converter
 cd kde-image-converter
 bash install.sh
 ```
