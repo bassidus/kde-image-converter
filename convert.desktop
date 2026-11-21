@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Service
 ServiceTypes=KonqPopupMenu/Plugin
-MimeType=image/png;image/jpeg;image/webp;image/gif;image/x-icon;
-Actions=convertToJpg;convertToPng;convertToWebp;convertToGif;convertToIco;
+MimeType=image/png;image/jpeg;image/webp;image/gif;image/x-icon;application/pdf;
+Actions=convertToJpg;convertToPng;convertToWebp;convertToGif;convertToIco;convertToPDF;convertToPDFA4;
 X-KDE-Submenu=Convert To
 X-KDE-Priority=TopLevel
 X-KDE-Submenu-Icon=albumfolder-importimages
@@ -31,3 +31,13 @@ Exec=bash -c 'for f; do convert "$f" "${f%.*}.gif"; done' _ %F
 Name=Convert to ICO (App Icon)
 Icon=edit-image
 Exec=bash -c 'for f; do convert "$f" -define icon:auto-resize=256,64,48,32,16 "${f%.*}.ico"; done' _ %F
+
+[Desktop Action convertToPDF]
+Name=Convert to PDF
+Icon=edit-image
+Exec=bash -c 'for f; do convert "$f" -background white -alpha remove -alpha off "${f%.*}.pdf"; done' _ %F
+
+[Desktop Action convertToPDFA4]
+Name=Convert to PDF (A4)
+Icon=edit-image
+Exec=bash -c 'for f; do convert "$f" -background white -alpha remove -alpha off -page a4 "${f%.*}A4.pdf"; done' _ %F
